@@ -6,10 +6,13 @@ $name = $email = $body = '';
 $nameErr = $emailErr = $bodyErr = $imgErr = '';
 
 if (isset($_POST['submit'])) {
+    // to upload image ti img folder
     $targetDir = "img/";
     $fileName = basename($_FILES["file"]["name"]);
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+
+
     if (empty($_POST['name'])) {
         $nameErr = 'Name is required';
     } else {
@@ -48,7 +51,7 @@ if (isset($_POST['submit'])) {
 <img src="/php-basics/feedback/img/logo.png" class="w-25 mb-3" alt="" />
 <h2>Feedback</h2>
 <p class="lead text-center">Leave feedback for Traversy Media</p>
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data" class="mt-4 w-75">
+<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data" class="mt-4 w-75">
     <div class="mb-3">
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control <?php echo $nameErr ? 'is-invalid' : null ?>" id="name" name="name" placeholder="Enter your name" />
