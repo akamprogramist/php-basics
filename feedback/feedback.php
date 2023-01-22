@@ -13,7 +13,10 @@ $feedback = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <div class="card-body text-center">
             <?php echo $item['body'] ?>
             <div class="text-secondary mt-2">
-                by <?php echo $item['name']; ?> om <?php echo $item['date'] ?>
+                by <?php echo $item['name']; ?> on <?php echo $item['date'] ?>
+            </div>
+            <div class="text-secondary mt-2">
+                <img src="<?php echo 'img/' . $item['img']; ?>" width="60px" height="60px" alt="">
             </div>
         </div>
     </div>
