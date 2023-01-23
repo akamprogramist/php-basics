@@ -37,7 +37,7 @@ if (isset($_GET['delete'])) {
             </div>
         </div>
         <a href="feedback.php?delete=<?php echo $item['id']; ?>" class="btn btn-danger">Delete</a>
-        <a href="edit.php?edit=<?php echo $item['id']; ?>" class="btn btn-info">edit</a>
+        <a href="edit.php?edit=<?php echo $item['id']; ?>" class="btn text-white btn-primary">edit</a>
     </div>
 <?php endforeach; ?>
 <?php include 'inc/footer.php'; ?>
