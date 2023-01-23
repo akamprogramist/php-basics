@@ -31,10 +31,10 @@ if (isset($_POST['submit'])) {
         $body = filter_input(INPUT_POST, 'body', FILTER_SANITIZE_SPECIAL_CHARS);
     }
 
-    if (!empty($_FILES["file"]["name"])) {
-        move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath);
-    } else {
+    if (empty($_FILES["file"]["name"])) {
         $imgErr = 'image is required';
+    } else {
+        move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath);
     }
 
     if (empty($nameErr) && empty($emailErr) && empty($bodyErr) && empty($imgErr)) {
